@@ -1,0 +1,4 @@
+1-20-2022:
+    <> Set up development environment (got Webster keys, accessed API, set up basic program).
+    <> Figured out how to access dictionary and thesaurus APIs for the desired information.
+    <> 
