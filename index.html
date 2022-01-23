@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="style.css">
-    <script src="jquery-3.6.0.js"></script>
-    <script src="main.js"></script>
+    <script src="/scripts/jquery-3.6.0.js"></script>
+    <script src="/scripts/main.js"></script>
 </head>
 <body>
-    <div class="userInput">
-        <textarea id="userTextInput" placeholder="Enter word"></textarea>
-        <textarea id="userSpeechPartInput" placeholder="Enter part of speech"></textarea>
-        <button id="userTextInputSubmit" type="submit" onclick=grabWord()>SUBMIT</button>
+    <div class="titleBar">
+        <h1 class="title">DICTIONARY FILTER</h1>
     </div>
-        <div class="finalDisplay">
-        <label class="gridItem1 gridLabel">bolas</label>
-        <label class="gridItem2 gridLabel">bolas</label>
-        <label class="gridItem3 gridLabel">bolas</label>
-        <button class="gridItem4 gridButton">bolas</button>
-        <button class="gridItem5 gridButton">bolas</button>
-        <button class="gridItem6 gridButton">bolas</button>
+
+    <div class="userInputContainer">
+        <textarea id="userTextInput" class="userInput" placeholder="Enter word(s). Separate words with commas."></textarea>
+        <textarea id="userSpeechPartInput" class="userInput" placeholder="Enter corresponding word's part of speech (ex: verb)"></textarea>
+        <button id="userTextInputSubmit" class="userInputSubmit" type="submit" onclick=grabWord()>SUBMIT</button>
+    </div>
+
+    <div class="mainDisplay">
+        <div class="wordDisplayContainer">
+            <div class="wordDisplayWrapper">
+                <h1 class="wordTitle">WORD</h1>
+                <h2 class="wordSubtitle">DEFINITIONS:</h2>
+                <p class="wordBodyText"></p>
+                <p class="wordBodyText"></p>
+                <h2 class="wordSubtitle">SENTENCES:</h2>
+                <p class="wordBodyText"></p>
+                <p class="wordBodyText"></p>
+                <h2 class="wordSubtitle">SYNONYMS:</h2>
+                <p class="wordBodyText"></p>
+                <p class="wordBodyText"></p>
+            </div>
+        </div>
     </div>
 </body>

@@ -1,4 +1,7 @@
 1-20-2022:
     <> Set up development environment (got Webster keys, accessed API, set up basic program).
     <> Figured out how to access dictionary and thesaurus APIs for the desired information.
-    <> 
+
+1-22-2022:
+    <> Committed to GitHub @ https://github.com/Valence707/dictionaryFilter
+    <> Finalized API workings. Need to add more conditionals within API calls.
