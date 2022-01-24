@@ -10,15 +10,19 @@
     </div>
 
     <div class="userInputContainer">
-        <textarea id="userTextInput" class="userInput" placeholder="Enter word(s). Separate words with commas."></textarea>
-        <textarea id="userSpeechPartInput" class="userInput" placeholder="Enter corresponding word's part of speech (ex: verb)"></textarea>
-        <button id="userTextInputSubmit" class="userInputSubmit" type="submit" onclick=populateDisplay()>SUBMIT</button>
+        <textarea id="multipleWordInput" class="userInput" placeholder="Enter word(s). Separate words with commas."></textarea>
+        <textarea id="multipleSpeechPartInput" class="userInput" placeholder="Enter corresponding word's part of speech (ex: verb)"></textarea>
+        <button id="multipleWordSubmit" class="userInputSubmit" type="submit" onclick=populateDisplay(this)>SUBMIT</button>
     </div>
 
     <div class="mainDisplay">
         <div class="wordDisplayContainer">
             <div class="wordData">
-                <h2 class="wordTitle">WORD</h2>
+                <div class="wordTitleBar">
+                    <input id="singleWordInput" class="wordInput" type="search" placeholder="Type Word">
+                    <input id="singleSpeechpartInput" class="wordInput" type="search" placeholder="Type Part of speech">
+                    <button id="singleWordSubmit" type="submit" onclick=populateDisplay(this)>+</button>
+                </div>
                 <div class="wordDataWrapper">
                     <div class="wordDataContainer">
                         <h3 class="wordSubtitle">DEFINITION 1:</h3>

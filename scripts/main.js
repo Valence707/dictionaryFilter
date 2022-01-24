@@ -20,13 +20,14 @@ function grabWord(word, speechPart) {
     // Word is filtered by part of speech.
     $.getJSON(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=0d870a14-7aad-4361-8131-c69a997d9a2c`,
         function (dictData) {
+            console.log(dictData);
+
             for (let wordVar of dictData) {
-                if (wordVar.fl == speechPart && finalWord.def1 == "") {
-                    finalWord.def1 = wordVar.shortdef[0];
-                    finalWord.def2 = wordVar.shortdef[1];
-        
-                    finalWord.sentence1 = dictData[1].def[0].sseq[0][0][1].dt[1][1][0].t;
-                    finalWord.sentence2 = dictData[1].def[1].sseq[0][0][1].dt[1][1][0].t;
+
+                if (wordVar.fl == speechPart) {
+
+                    finalWord.def1 = wordVar.def[1];
+                
                 }
             }
         }
@@ -36,6 +37,7 @@ function grabWord(word, speechPart) {
     // add to the finalWord object as two arrays.
     $.getJSON(`https://dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=a51b46ac-7b10-485c-bef5-0f7715f9eab7`,
         function (thesData) {
+            console.log(thesData);
             for (let wordVar of thesData) {
                 if (wordVar.fl == speechPart) {
                     finalWord.syns1 = [...wordVar.meta.syns[0].slice(0, 3)];
@@ -50,34 +52,45 @@ function grabWord(word, speechPart) {
     return finalWord;
 }
 
-function populateDisplay() {
-    let words = $(`#userTextInput`).val()
-    .replace(/[\s\d]/gi, "")
-    .split(",");
+function populateDisplay(el) {
 
-    let partsOfSpeech = $(`#userSpeechPartInput`).val()
-    .replace(/[\s\d]/gi, "")
-    .split(",");
+    if (el.id == "singleWordSubmit") {
+        let word = $("#singleWordInput").val();
+        let speechPart = $("#singleSpeechpartInput").val();
+        
+        wordCollection.push(grabWord(word, speechPart));
 
-    // call grabWord() for each user-inputted word.
-    // Populate wordCollection array with word objects returned by each grabWord call.
-    // Use an interval to delay calling of grabWord to make Firefox stop crashing
-    // because I'm making too many calls to the API or something.
-    if (words.length == partsOfSpeech.length) {
-        let tempCounter = 0;
-        let populateWords = setInterval(function() {
-            console.log(words.length);
-            console.log(wordCollection.length);
-            wordCollection.push(grabWord(words[tempCounter], partsOfSpeech[tempCounter]));
-            tempCounter++;
-            if (words.length == wordCollection.length) {
-                console.log(wordCollection);
-                clearInterval(populateWords);
-            }
-        }, 1000);
+    } else if (el.id == "multipleWordSubmit") {
+
+        let words = $(`#userTextInput`).val()
+        .replace(/[\s\d]/gi, "")
+        .split(",");
+
+        let speechParts = $(`#userSpeechPartInput`).val()
+        .replace(/[\s\d]/gi, "")
+        .split(",");
+
+        // call grabWord() for each user-inputted word.
+        // Populate wordCollection array with word objects returned by each grabWord call.
+        // Use an interval to delay calling of grabWord to make Firefox stop crashing
+        // because I'm making too many calls to the API or something.
+        if (words.length == speechParts.length) {
+            let tempCounter = 0;
+            let populateWords = setInterval(function() {
+                console.log(words.length);
+                console.log(wordCollection.length);
+                wordCollection.push(grabWord(words[tempCounter], speechParts[tempCounter]));
+                tempCounter++;
+                if (words.length == wordCollection.length) {
+                    console.log(wordCollection);
+                    clearInterval(populateWords);
+                }
+            }, 100);
+        }
+
+        // Clears text input fields.
+        $(`#multipleWordInput`).val("");
+        $(`#multipleSpeechPartInput`).val("");
     }
     
-    // Clears text input fields.
-    $(`#userTextInput`).val("");
-    $(`#userSpeechPartInput`).val("");
 }

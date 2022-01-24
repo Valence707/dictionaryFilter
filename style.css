@@ -92,12 +92,11 @@ body {
     width: 300px;
 }
 
-.wordTitle {
+.wordTitleBar {
     grid-area: 1 / 1 / span 1 / span 2;
     border-radius: 6px 6px 0px 0px;
     background-color: black;
     padding: 10px;
-    color: white;
     text-align: center;
     margin: 0px;
 }
