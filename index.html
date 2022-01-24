@@ -12,22 +12,31 @@
     <div class="userInputContainer">
         <textarea id="userTextInput" class="userInput" placeholder="Enter word(s). Separate words with commas."></textarea>
         <textarea id="userSpeechPartInput" class="userInput" placeholder="Enter corresponding word's part of speech (ex: verb)"></textarea>
-        <button id="userTextInputSubmit" class="userInputSubmit" type="submit" onclick=grabWord()>SUBMIT</button>
+        <button id="userTextInputSubmit" class="userInputSubmit" type="submit" onclick=populateDisplay()>SUBMIT</button>
     </div>
 
     <div class="mainDisplay">
         <div class="wordDisplayContainer">
-            <div class="wordDisplayWrapper">
-                <h1 class="wordTitle">WORD</h1>
-                <h2 class="wordSubtitle">DEFINITIONS:</h2>
-                <p class="wordBodyText"></p>
-                <p class="wordBodyText"></p>
-                <h2 class="wordSubtitle">SENTENCES:</h2>
-                <p class="wordBodyText"></p>
-                <p class="wordBodyText"></p>
-                <h2 class="wordSubtitle">SYNONYMS:</h2>
-                <p class="wordBodyText"></p>
-                <p class="wordBodyText"></p>
+            <div class="wordData">
+                <h2 class="wordTitle">WORD</h2>
+                <div class="wordDataWrapper">
+                    <div class="wordDataContainer">
+                        <h3 class="wordSubtitle">DEFINITION 1:</h3>
+                        <p class="wordBodyText"></p>
+                        <h3 class="wordSubtitle">SENTENCE 1:</h3>
+                        <p class="wordBodyText"></p>
+                        <h3 class="wordSubtitle">SYNONYMS:</h3>
+                        <p class="wordBodyText"></p>
+                    </div>
+                    <div class="wordDataContainer">
+                        <h3 class="wordSubtitle">DEFINITION 2:</h3>
+                        <p class="wordBodyText"></p>
+                        <h3 class="wordSubtitle">SENTENCE 2:</h3>
+                        <p class="wordBodyText"></p>
+                        <h3 class="wordSubtitle">SYNONYMS:</h3>
+                        <p class="wordBodyText"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

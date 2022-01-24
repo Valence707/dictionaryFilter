@@ -5,3 +5,9 @@
 1-22-2022:
     <> Committed to GitHub @ https://github.com/Valence707/dictionaryFilter
     <> Finalized API workings. Need to add more conditionals within API calls.
+
+1-23-2022:
+    <> Worked on front-end. Created template for word displays.
+    <> Added ability to input multiple words.
+    < > Need to fix grabWord() function; ADD ERROR HANDLING AND CONDITIONALS!
+    < > need to debug user input and grabWord.
